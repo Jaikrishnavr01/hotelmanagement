@@ -11,34 +11,49 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="navbar-toggle" onClick={toggleMenu}>
-        <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
-        <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
-        <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
+      <div className="navbar-left">
+        <img src="logo.png" alt="Logo" className="logo" />
       </div>
-      <ul className={`nav-links ${showMenu ? 'show' : ''}`}>
+      <div className="navbar-center">
+        <div className="navbar-toggle" onClick={toggleMenu}>
+          <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
+          <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
+          <div className={`toggle-line ${showMenu ? 'active' : ''}`}></div>
+        </div>
+        <ul className={`nav-links ${showMenu ? 'show' : ''}`}>
+          <li>
+            <NavLink exact to="/" onClick={toggleMenu}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/About" onClick={toggleMenu}>About Us</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Rooms" onClick={toggleMenu}>Rooms</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Hall" onClick={toggleMenu}>Hall</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Service" onClick={toggleMenu}>Dine & Drinks</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Gallery" onClick={toggleMenu}>Gallery</NavLink>
+          </li>
+          <li>
+            <NavLink to="/Contact-us" onClick={toggleMenu}>Contact us</NavLink>
+          </li>
+          
         <li>
-          <NavLink exact to="/" onClick={toggleMenu}>Home</NavLink>
+
+        <button className="btn1">Book Now</button>
         </li>
-        <li>
-          <NavLink to="/About" onClick={toggleMenu}>About Us</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Rooms" onClick={toggleMenu}>Rooms</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Hall" onClick={toggleMenu}>Hall</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Service" onClick={toggleMenu}>Dine & Drinks</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Gallery" onClick={toggleMenu}>Gallery</NavLink>
-        </li>
-        <li>
-          <NavLink to="/Contact-us" onClick={toggleMenu}>Contact us</NavLink>
-        </li>
-      </ul>
+    
+          
+        </ul>
+      </div>
+      <div className="navbar-right">
+        <button className="btn2">Book Now</button>
+      </div>
     </nav>
   );
 }

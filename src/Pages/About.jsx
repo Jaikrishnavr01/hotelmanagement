@@ -8,7 +8,10 @@ function About() {
   return (
     <div>
         <Navbar/>
-        <AboutHotel/>
+       <div  style={{backgroundColor:"#FFF2D7"}}>
+        <h2 style={{textAlign: 'center', fontWeight: '700'}}>About Us</h2>
+
+        <AboutHotel/></div>
         <HotelServices/>
         <Footer/>
     </div>

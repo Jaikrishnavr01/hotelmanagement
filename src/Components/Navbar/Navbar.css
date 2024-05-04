@@ -1,77 +1,136 @@
 .navbar {
-    background-color: #333;
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  z-index: 2;
+}
+
+.navbar-left {
+  padding-left: 20px;
+  flex: 1;
+}
+
+.navbar-center {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar-right {
+  padding-right: 20px;
+  flex: 1;
+  text-align: right;
+}
+
+/* Active class */
+.nav-links li a.active {
+  color: #ff0; /* Change color as needed */
+}
+
+/* Toggle Button Styles */
+.toggle-line {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.toggle-line.active:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.toggle-line.active:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle-line.active:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.btn2 {
+  background-color: #b5fa55;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn1 {
+  background-color: #b5fa55;
+  color: #000000;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
   }
   
   .nav-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .nav-links.show {
     display: flex;
   }
   
   .nav-links li {
-    margin-right: 20px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
   
-  .nav-links li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .navbar-toggle {
+  .btn2 {
     display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    cursor: pointer;
   }
   
-  .toggle-line {
-    width: 100%;
-    height: 3px;
-    background-color: #fff;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+  .btn1 {
+    display: block;
+    margin: 0 auto;
   }
-  
-  /* mobile responsive */
-  @media (max-width: 768px) {
-    .navbar-toggle {
-      display: flex;     
-    }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      background-color: #333;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-      transition: all 0.3s ease;
-    }
-    .nav-links.show {
-      display: flex;
-      align-items: center;
-      justify-content: center
-    }
-  }
-  
-  /* Animation */ 
-  .active:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-  
-  .active:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .active:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  
+}

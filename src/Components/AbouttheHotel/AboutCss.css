@@ -1,44 +1,36 @@
-.Container {
-    display: flex;
-    padding: 20px;
-    justify-content: center;
-    align-items: center;
+
+.fade-in-left {
+    animation: fadeLeft 1s ease-out;
+  }
+
+  .fade-in-left h4{
+    font-weight: 700;
   }
   
-  .AboutName {
-    text-align: left;
+  .fade-in-right {
+    float: right;
+    animation: fadeRight 1s ease-out;
   }
   
-  .AboutHotel p { 
-    text-align: left;
-  }
-  
-  .AboutHotel {
-    max-width: 50%;
-    padding: 20px;
-  }
-  
-  .img {
-    width: 500px;
-    height: auto;
-    display: block;
-    margin: 0 auto; 
-  }
-  
-  @media only screen and (max-width: 420px) {
-    .Container {
-      flex-direction: column;
-      align-items: stretch;
+  @keyframes fadeLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
     }
-    
-    .img {
-        width: 200px;
-        height: auto;
-        display: block;
-        margin: 0 auto; 
-      }
-    .AboutHotel {
-        max-width: 100%;
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes fadeRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
   
