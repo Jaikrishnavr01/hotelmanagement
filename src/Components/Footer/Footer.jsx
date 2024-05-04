@@ -14,11 +14,12 @@ function Footer() {
             <h5 className='f1'>Menu</h5>
             <ul className="list-unstyled">
               <li>Home</li>
-              <li>Accommodations</li>
-              <li>Dining</li>
-              <li>Activities</li>
-              <li>Spa & Wellness</li>
-              <li>Special Offers</li>
+              <li>About Us</li>
+              <li>Rooms</li>
+              <li>Halls</li>
+              <li>Dine & Drinks</li>
+              <li>Gallery</li>
+              <li>Contact us</li>
             </ul>
           </div>
        

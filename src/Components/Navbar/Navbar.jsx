@@ -12,7 +12,8 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <img src="logo.png" alt="Logo" className="logo" />
+      <h5>H-Residency</h5>
+        {/* <img src="logo.png" alt="Logo" className="logo" /> */}
       </div>
       <div className="navbar-center">
         <div className="navbar-toggle" onClick={toggleMenu}>
