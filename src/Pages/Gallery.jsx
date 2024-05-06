@@ -14,8 +14,8 @@ function Gallery() {
   const [selectedField, setSelectedField] = useState('Rooms');
 
   const roomImages = [room1, room2, room3, room4];
-  const hallImages = [hall];
-  const restaurantImages = [restaurant, restaurant];
+  const hallImages = [hall,hall,hall];
+  const restaurantImages = [restaurant,restaurant,restaurant];
 
   const handleFieldChange = (event) => {
     setSelectedField(event.target.value);
