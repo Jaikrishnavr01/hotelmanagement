@@ -22,7 +22,7 @@ export default function Rooms() {
             src={i1}
             style={{ width: "100%", height: "400px" }} />
           <Card.Body>
-            <Card.Title>Executive Room</Card.Title><br></br>
+            <Card.Title>Executive-Ac Room</Card.Title><br></br>
             <Link to="/bookingpage">
               <button className="custom-button">Book now</button>
             </Link>
