@@ -28,7 +28,7 @@ function Carousel() {
   return (
     <div className="carousel">
       <div className="label">
-        <h3>Welcome to H-Residency </h3>
+        <h3>Welcome to Habibi Residency </h3>
         <p>Delight in life's pinnacle moments</p>
       </div>
       <button onClick={goToPreviousSlide}>{"<"}</button>

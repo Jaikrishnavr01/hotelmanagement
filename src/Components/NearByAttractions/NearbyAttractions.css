@@ -1,0 +1,42 @@
+.attractions-heading {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .attraction-title {
+    font-size: 20px;
+    color: #008080; /* Turquoise */
+  }
+  
+  .attraction-description {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .attraction-distance {
+    font-size: 14px;
+    color: #888;
+  }
+ 
+  .attraction-item {
+    transition: transform 0.3s ease;
+  }
+  
+  .attraction-item.hovered {
+    transform: scale(1.05);
+  }
+
+  .img-container {
+    height: 200px; 
+    overflow: hidden; 
+  }
+  
+  .img-container img {
+    width: 100%; 
+    height: auto;
+  }
+
+  

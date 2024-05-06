@@ -14,7 +14,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <h5>H-Residency</h5>
+        <h5>Habibi Residency</h5>
         {/* <img src="logo.png" alt="Logo" className="logo" /> */}
       </div>
       <div className="navbar-center">

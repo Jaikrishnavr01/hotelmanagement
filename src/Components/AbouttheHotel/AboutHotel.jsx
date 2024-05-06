@@ -10,9 +10,9 @@ function AboutHotel() {
             <h4>PREMIUM LODGING</h4>
             <h5>Delight in an Exquisite Experience</h5>
             <div className='AboutHotel'>
-              <p>Discover the epitome of luxury and comfort at H-Residency, an esteemed destination nestled in the vibrant city of Coimbatore, famously known as 'The Manchester of South India'. Perfectly situated in Saravanampatti, our hotel enjoys close proximity to major business hubs like Chil SEZ IT Park and KCT Tech Park, as well as leading tech giants such as Bosch, Cognizant, NTT Data, and Amazon. Whether you're traveling for business or leisure, our impeccable service and upscale amenities promise a serene and enjoyable stay.</p>
-              <p>Choose from our selection of 40 well-appointed rooms, including Executive, Deluxe, and Premium categories, each designed to cater to your individual preferences. Conveniently located near Coimbatore International Airport in Peelamedu, H-Residency ensures hassle-free travel for our guests.</p>
-              <p>Explore the charm of Coimbatore with ease, as H-Residency is surrounded by numerous attractions waiting to be discovered. Let our dedicated team and exceptional facilities exceed your expectations and create cherished memories during your stay. Experience luxury redefined at H-Residency.</p>
+              <p>Discover the epitome of luxury and comfort at Habibi  Residency, an esteemed destination nestled in the vibrant city of Coimbatore, famously known as 'The Manchester of South India'. Perfectly situated in Saravanampatti, our hotel enjoys close proximity to major business hubs like Chil SEZ IT Park and KCT Tech Park, as well as leading tech giants such as Bosch, Cognizant, NTT Data, and Amazon. Whether you're traveling for business or leisure, our impeccable service and upscale amenities promise a serene and enjoyable stay.</p>
+              <p>Choose from our selection of 40 well-appointed rooms, including Executive, Deluxe, and Premium categories, each designed to cater to your individual preferences. Conveniently located near Coimbatore International Airport in Peelamedu, Habibi  Residency ensures hassle-free travel for our guests.</p>
+              <p>Explore the charm of Coimbatore with ease, as Habibi  Residency is surrounded by numerous attractions waiting to be discovered. Let our dedicated team and exceptional facilities exceed your expectations and create cherished memories during your stay. Experience luxury redefined at Habibi  Residency.</p>
             </div>
           </div>
         </div>
