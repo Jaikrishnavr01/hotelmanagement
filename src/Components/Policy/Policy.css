@@ -1,0 +1,44 @@
+.policy-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .policy-content {
+    max-width: 80%; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .policy-content h3 {
+    text-align: center;
+  }
+  
+  .policy-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .policy-content ul li {
+    margin-bottom: 10px;
+  }
+  
+  .policy-content ul li::before {
+    content: "\2022";
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .policy-content {
+      max-width: 90%; 
+    }
+  }
+  

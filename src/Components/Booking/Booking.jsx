@@ -3,6 +3,7 @@ import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import Footer from '../Footer/Footer';
 import './Booking.css';
+import Policy from '../Policy/Policy';
 
 const roomRates = {
   'Executive-ac': 3000,
@@ -222,6 +223,7 @@ export default function Booking() {
               </button>
               <button className="btn btn-success" type="submit">Confirm</button>
             </form>
+            <Policy/>
           </div>
         );
 
@@ -229,7 +231,6 @@ export default function Booking() {
         return (
           <div className="booking-details-container">
             <h1>Booking Details</h1>
-
             <p>Booking Id: {formData.id}</p>
             <p>Name: {formData.name}</p>
             <p>Email: {formData.email}</p>
@@ -261,6 +262,7 @@ export default function Booking() {
         </div>
         {renderForm()}
       </div>
+      
       <Footer />
     </div>
   );
