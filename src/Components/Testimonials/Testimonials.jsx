@@ -33,8 +33,11 @@ function Testimonials() {
 
   return (
     <div className="testimonials">
+      <div className='center-text'>
       <h2>Testimonials</h2>
       <h5>Hear what clients are saying about Habibi Residence!</h5>
+      </div>
+      <div className='slider'>
       <Slider {...settings}>
         {testimonialData.map(testimonial => (
           <div key={testimonial.id}>
@@ -43,6 +46,7 @@ function Testimonials() {
           </div>
         ))}
       </Slider>
+      </div>
     </div>
   );
 }

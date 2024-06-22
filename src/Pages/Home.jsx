@@ -15,7 +15,7 @@ function Home() {
     <Navbar/>
     <Carousel/>
     <AboutHotel/>
-    <Testimonials/>
+    <Testimonials/> 
     <Rooms/>
     <NearbyAtrractions/>
     <HotelServices/>
