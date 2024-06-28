@@ -25,7 +25,7 @@ function Navbar() {
         </div>
         <ul className={`nav-links ${showMenu ? 'show' : ''}`}>
           <li>
-            <NavLink exact to="/" onClick={toggleMenu}>Home</NavLink>
+          <NavLink to="/" exact={true.toString()} onClick={toggleMenu} >Home</NavLink>
           </li>
           <li>
             <NavLink to="/About" onClick={toggleMenu}>About Us</NavLink>

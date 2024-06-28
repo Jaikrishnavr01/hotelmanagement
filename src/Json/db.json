@@ -1,4 +1,26 @@
 {
-  "users": [],
-  "Rooms": []
+  "users": [
+    {
+      "id": "633c",
+      "name": "jai",
+      "email": "jai@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "Rooms": [
+    {
+      "id": "628e",
+      "roomType": "Executive-ac",
+      "roomNumber": 2,
+      "roomStatus": "Available",
+      "roomGuestName": "jai",
+      "roomGuestEmail": "jaikrishnavr@outlook.com",
+      "roomGuestPhone": "1234567890",
+      "roomCapacity": "2",
+      "roomNights": "2",
+      "roomCheckIn": "2024-06-23",
+      "roomCheckOut": "2024-06-24",
+      "roomPrice": 6000
+    }
+  ]
 }

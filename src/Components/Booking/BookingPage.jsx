@@ -4,13 +4,28 @@ import Footer from '../Footer/Footer';
 import axios from 'axios';
 import './BookingPage.css'; // Import the CSS file
 import Policy from '../Policy/Policy';
+import { useNavigate } from 'react-router-dom';
+import Auth from '../Auth/Auth';
 
 export default function BookingPage() {
   const [bookingDetails, setBookingDetails] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchBookingDetails();
   }, []);
+
+  useEffect(() => {
+    const token = window.localStorage.getItem('token');
+    if (token) {
+      setIsAuthenticated(true);
+      fetchBookingDetails();
+    } else {
+      setIsAuthenticated(false);
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const fetchBookingDetails = async () => {
     try {
@@ -72,7 +87,7 @@ export default function BookingPage() {
           </table>
         )}
       </div>
-    
+
       <Footer />
 
     </div>

@@ -52,35 +52,63 @@ export default function Booking() {
     }
   };
 
-  const handleNextStage = (e) => {
+  const handleNextStage = async (e) => {
     e.preventDefault();
 
     if (currentStage === 3) {
-      axios.post("http://localhost:3002/Rooms", {
-        roomType: formData.roomType,
-        roomNumber: formData.roomNumber,
-        roomStatus: "Available",
-        roomGuestName: formData.name,
-        roomGuestEmail: formData.email,
-        roomGuestPhone: formData.phone,
-        roomCapacity: formData.persons,
-        roomNights: formData.nights,
-        roomCheckIn: formData.arrivalDate,
-        roomCheckOut: formData.departureDate,
-        roomPrice: formData.totalPrice,
-      })
-        .then(res => {
-          console.log(res);
-          setFormData({ ...formData, id: res.data.id });
-          setCurrentStage(currentStage + 1);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      try {
+        // Fetch the users data from the backend
+        const response = await axios.get('http://localhost:3003/auth/alldata');
+        const users = response.data.users;
+
+        // Retrieve the token from localStorage
+        const tokenToFind = localStorage.getItem('token');
+        const userWithToken = users.find(user => user.token === tokenToFind);
+
+        if (userWithToken) {
+          console.log('User found:', userWithToken);
+
+          // Post room data using the fetched token
+          await axios.post("http://localhost:3003/auth/roomdata", {
+            roomType: formData.roomType,
+            roomNumber: formData.roomNumber,
+            roomStatus: "Available",
+            roomGuestName: formData.name,
+            roomGuestEmail: formData.email,
+            roomGuestPhone: formData.phone,
+            roomCapacity: formData.persons,
+            roomNights: formData.nights,
+            roomCheckIn: formData.arrivalDate,
+            roomCheckOut: formData.departureDate,
+            roomPrice: formData.totalPrice,
+          }, {
+            headers: {
+              Authorization: `Bearer ${userWithToken.token}`
+            }
+          })
+            .then(res => {
+              console.log(res);
+              const roomId = userWithToken._id;
+              console.log(roomId);
+              setFormData({ ...formData, id: roomId });
+              setCurrentStage(currentStage + 1);
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        } else {
+          console.log('Token not found');
+        }
+      } catch (error) {
+        console.error('Error fetching users data:', error);
+      }
     } else {
       setCurrentStage(currentStage + 1);
     }
   };
+
+
+
 
   const calculateTotalCost = () => {
     const { nights, roomPrice, persons } = formData;
@@ -90,7 +118,7 @@ export default function Booking() {
     const parsedPersons = Number(persons);
 
     if (isNaN(parsedNights) || isNaN(parsedRoomPrice) || isNaN(parsedPersons)) {
-      return 0; 
+      return 0;
     }
 
     let totalCost = parsedNights * parsedRoomPrice;
@@ -132,7 +160,7 @@ export default function Booking() {
                 value={formData.roomType}
                 onChange={handleFormChange}
                 required
-              > 
+              >
                 <option value="Executive-ac">Executive-Ac</option>
                 <option value="Executive Premier">Executive Premier</option>
                 <option value="Deluxe">Deluxe</option>
@@ -223,7 +251,7 @@ export default function Booking() {
               </button>
               <button className="btn btn-success" type="submit">Confirm</button>
             </form>
-            <Policy/>
+            <Policy />
           </div>
         );
 
@@ -262,7 +290,7 @@ export default function Booking() {
         </div>
         {renderForm()}
       </div>
-      
+
       <Footer />
     </div>
   );

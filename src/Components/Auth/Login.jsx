@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from './Auth';
+import React, { useState } from 'react';
+import { useAuth } from './Auth'; // Assuming useAuth handles authentication
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css'; // Import CSS file for styling
@@ -9,50 +9,54 @@ import Footer from '../Footer/Footer';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [userList, setUserList] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
-    const auth = useAuth();
     const navigate = useNavigate();
+    const auth = useAuth();
 
-    useEffect(() => {
-        axios.get('http://localhost:3002/users')
-        .then(res => setUserList(res.data));
-    }, []);
-
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const user = userList.find(x => x.email === email);
+        try {
+            const res = await axios.post('http://localhost:3003/auth/signin', {
+                email,
+                password
+            });
 
-        if (user) {
-            if (user.password === password) {
-                auth.login(user.name);
-                navigate('/bookingpage');
-            } else {
-                setErrorMessage('Invalid Password');
-            }
-        } else {
-            setErrorMessage('Invalid User');
+            const token = res.data.token;
+            window.localStorage.setItem('token', token);
+            auth.login({ password: res.data.user.password, email: res.data.user.email });
+            navigate('/bookingpage');
+        } catch (err) {
+            setErrorMessage('Invalid email or password');
+            console.error(err);
         }
     };
 
     return (
         <>
-        <Navbar/> <br /> <br /> <br />
-        <div className="login-container">
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <label>Email</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <label>Password</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <button type='submit'>Login</button>
-            </form>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
-            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-        </div>
-        <br />
-        <br /><br />
-        <Footer/>
+            <Navbar />
+            <div className="login-container">
+                <h1>Login</h1>
+                <form onSubmit={handleLogin}>
+                    <label>Email</label>
+                    <input 
+                        type="email" 
+                        value={email} 
+                        onChange={(e) => setEmail(e.target.value)} 
+                        required 
+                    />
+                    <label>Password</label>
+                    <input 
+                        type="password" 
+                        value={password} 
+                        onChange={(e) => setPassword(e.target.value)} 
+                        required 
+                    />
+                    <button type='submit'>Login</button>
+                </form>
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+            </div>
+            <Footer />
         </>
     );
 }

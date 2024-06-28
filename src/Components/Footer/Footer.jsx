@@ -33,7 +33,7 @@ function Footer() {
             <p>Email: info@hresidency.com</p>
           </div>
         </div>
-        <p>@Copyrights reservered by jaikrishna</p>
+        <p>Developed by jaikrishna</p>
       </div>
     </footer>
   );
