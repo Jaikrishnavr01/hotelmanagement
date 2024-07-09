@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth } from './Auth'; // Assuming useAuth handles authentication
+import { useAuth } from './Auth';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css'; // Import CSS file for styling
@@ -23,7 +23,7 @@ export default function Login() {
 
             const token = res.data.token;
             window.localStorage.setItem('token', token);
-            auth.login({ password: res.data.user.password, email: res.data.user.email });
+            auth.login(res.data.user);
             navigate('/bookingpage');
         } catch (err) {
             setErrorMessage('Invalid email or password');

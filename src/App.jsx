@@ -9,7 +9,6 @@ import Gallery from './Pages/Gallery';
 import Contact from './Pages/Contact';
 import Login from './Components/Auth/Login';
 import Signup from './Components/Auth/Signup';
-import Auth from './Components/Auth/Auth';
 import Booking from './Components/Booking/Booking';
 import BookingPage from './Components/Booking/BookingPage';
 import NoMatch from './Components/Nomatch/NoMatch';
@@ -20,7 +19,7 @@ import RequiredAuth from './Components/Auth/RequriedAuth';
 function App() {
   return (
     <>
-      <Auth>
+      
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/About' element={<About />} />
@@ -32,10 +31,10 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='/login' element={<Login />} />
           <Route path='/bookingorders' element={<BookingPage />} />
-          <Route path='/bookingpage' element={<RequiredAuth><Booking /></RequiredAuth>} />
+          <Route path='/bookingpage' element={<Booking />} />
           <Route path='*' element={<NoMatch />} />
         </Routes>
-      </Auth>
+ 
     </>
   );
 }

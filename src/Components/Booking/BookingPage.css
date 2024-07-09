@@ -1,20 +1,41 @@
+.booking-details-container {
+  padding: 20px;
+}
+
 .booking-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+
+.booking-table th,
+.booking-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.booking-table th {
+  background-color: #f2f2f2;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .booking-table {
+    font-size: 14px; /* Decrease font size for smaller screens */
   }
-  
+
   .booking-table th,
   .booking-table td {
-    border: 1px solid #dddddd;
-    padding: 8px;
-    text-align: left;
+    padding: 6px; /* Adjust padding for smaller screens */
   }
-  
-  .booking-table th {
-    background-color: #f2f2f2;
+}
+
+@media (max-width: 576px) {
+  .booking-table {
+    font-size: 12px; /* Further decrease font size for mobile screens */
   }
-  
-  .booking-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
+}
+
   

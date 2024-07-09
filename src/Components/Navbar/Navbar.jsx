@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
-import { useAuth } from '../Auth/Auth';
+import { AuthProvider, useAuth } from '../Auth/Auth';
+import RequiredAuth from '../Auth/RequriedAuth';
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  const auth = useAuth()
+  const handleLogout = () => {
+      logout(); // Call logout function from Auth context
+      navigate('/login'); // Redirect to login page after logout
+  };
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -46,18 +52,29 @@ function Navbar() {
             <NavLink to="/Contact-us" onClick={toggleMenu}>Contact us</NavLink>
           </li>
 
-          {auth.user && <li> <NavLink to="/bookingorders" onClick={toggleMenu}>Bookings</NavLink></li>}
+          {user && <li> <NavLink to="/bookingorders" onClick={toggleMenu}>Bookings</NavLink></li>
+          }
+              {user && <li> <NavLink to="/bookingpage" onClick={toggleMenu}>Book Now</NavLink></li>
+          }
 
-          <li>
-            <Link to='/bookingpage'> <button className="btn1">Book Now</button></Link>
-          </li>
-
+       
+          {user ? (
+      <li>
+      <button  onClick={handleLogout} className="btn1">Logout</button>
+    </li>
+      ):(
+        <Link to='/login'><button className="btn1">Book Now</button></Link>
+      )}
           
         </ul>
       </div>
+      {user ? (
       <div className="navbar-right">
-        <Link to='/bookingpage'><button className="btn2">Book Now</button></Link>
+        <button  onClick={handleLogout} className="btn2">Logout</button>
       </div>
+      ):(
+        <Link to='/login'><button className="btn2">Book Now</button></Link>
+      )}
     </nav>
   );
 }
