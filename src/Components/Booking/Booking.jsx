@@ -58,7 +58,7 @@ export default function Booking() {
     if (currentStage === 3) {
       try {
         // Fetch the users data from the backend
-        const response = await axios.get('http://localhost:3003/auth/alldata');
+        const response = await axios.get('https://hotelmanagement-backend-3a41.onrender.com/auth/alldata');
         const users = response.data.users;
 
         // Retrieve the token from localStorage
@@ -69,7 +69,7 @@ export default function Booking() {
           console.log('User found:', userWithToken);
 
           // Post room data using the fetched token
-          await axios.post("http://localhost:3003/auth/roomdata", {
+          await axios.post("https://hotelmanagement-backend-3a41.onrender.com/auth/roomdata", {
             roomType: formData.roomType,
             roomNumber: formData.roomNumber,
             roomStatus: "Available",

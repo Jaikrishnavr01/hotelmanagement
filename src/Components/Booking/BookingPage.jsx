@@ -40,7 +40,7 @@ export default function BookingPage() {
 
   const fetchBookingDetails = async (userId) => {
     try {
-      const response = await axios.get(`http://localhost:3003/auth/alldata/${userId}`);
+      const response = await axios.get(`https://hotelmanagement-backend-3a41.onrender.com/auth/alldata/${userId}`);
       setBookingDetails(response.data.roomdata || []);
       console.log("Booking Details: ", response.data.roomdata);
     } catch (error) {

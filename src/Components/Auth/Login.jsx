@@ -16,7 +16,7 @@ export default function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3003/auth/signin', {
+            const res = await axios.post('https://hotelmanagement-backend-3a41.onrender.com/auth/signin', {
                 email,
                 password
             });

@@ -14,7 +14,7 @@ export default function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3003/auth/signup', {
+        axios.post('https://hotelmanagement-backend-3a41.onrender.com/auth/signup', {
             name,
             email,
             password
